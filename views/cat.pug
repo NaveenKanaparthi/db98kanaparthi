@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  - var cats = cat;
+  h1 Search Results
+  div(class= "container-fluid")
+    each value, index in cats
+        div(class="row",style ="cursor:pointer",onclick=`buy(${index + 1})`)
+           div(class="col-lg-2 col-4 col-sm-2") #{value.cat_type}
+           div(class="col-lg-2 col-4 col-sm-2") #{value.cat_color}
+           div(class="col-lg-2 col-4 col-sm-2") #{value.cat_weight}
+
+  script.
+     function buy(rowNo) {
+       alert('You purchased item' + rowNo);
+     }
