@@ -11,9 +11,9 @@ class cat {
 
 /* GET cat page. */
 router.get('/', function(req, res, next) {
-  const cat1 = new cat('type', 10, 'sound');
-  const cat2 = new cat('weight', 15, 'eyes');
-  const cat3 = new cat('colour', 12, 'family');
+  const cat1 = new cat('rangolian', 40, 'black');
+  const cat2 = new cat('white cat', 15, 'brown');
+  const cat3 = new cat('black cat', 12, 'light black');
   res.render('cat', {cat : [cat1, cat2, cat3]});
 });
 
