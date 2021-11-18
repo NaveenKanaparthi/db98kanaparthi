@@ -20,18 +20,19 @@ mongoose.connect(connectionString,
 
 // We can seed the collection if needed on server start
 async function recreateDB(){
-  // Delete everything await cat.deleteMany();
-  let instance1 = new cat({brand:"ghost", cat_weight:'large', cat_color:10});
+  // Delete everything 
+  await cat.deleteMany();
+  let instance1 = new cat({cat_type:"ghost", cat_weight:'large', cat_color:10});
   instance1.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("First object saved")
   });
-  let instance2 = new cat({brand:"evil", cat_weight:'medium', cat_color:12});
+  let instance2 = new cat({cat_type:"evil", cat_weight:'medium', cat_color:12});
   instance2.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("Second object saved")
   });
-  let instance3 = new cat({brand:"deadly", cat_weight:'small', cat_color:15});
+  let instance3 = new cat({cat_type:"deadly", cat_weight:'small', cat_color:15});
   instance3.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("Third object saved")

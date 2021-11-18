@@ -1,0 +1,24 @@
+extends layout 
+ 
+block content 
+  h1= title 
+if (toShow == null) 
+    h2 No instance to detail 
+else 
+  - let catid = toShow._id 
+  - let cat_type = toShow.cat_type 
+  - let cat_color = toShow.cat_color 
+  - let cat_weight = toShow.cat_weight 
+  div 
+    div.row 
+      div(class='catAttr mr-3') cat ID is: 
+      div #{catid} 
+    div.row 
+      div(class='catAttr mr-3') cat Type is: 
+      div #{cat_type} 
+    div.row 
+      div(class='catAttr mr-3') cat weight is: 
+      div #{cat_weight} 
+    div.row 
+      div(class='catAttr mr-3') cat color is: 
+      div #{cat_color}

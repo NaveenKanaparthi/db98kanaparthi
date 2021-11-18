@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var cat_controller = require('../controllers/cat');
+
 
 class cat {
   constructor(cat_type, cat_weight,cat_color) {
@@ -18,3 +20,15 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+/* GET detail cat page */
+router.get('/detail', cat_controller.cat_view_one_Page);
+
+/* GET create cat page */
+router.get('/create', cat_controller.cat_create_Page);
+
+/* GET create update page */
+router.get('/update', cat_controller.cat_update_Page);
+
+/* GET create cat page */
+router.get('/delete', cat_controller.cat_delete_Page);

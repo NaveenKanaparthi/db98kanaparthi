@@ -1,0 +1,34 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  form(id='catForm', action="/resource/cat", method="POST") 
+    div.form-group 
+        label.catAttr(for='cat_type') cat type 
+        input#cat_type(type='text', name='cat_type') 
+    div.form-group 
+        label.catAttr(for='cat_weight') cat weight 
+        input#weight(type='text', name='cat_weight') 
+    div.form-group 
+        label.catAttr(for='cat_color') cat color 
+        input#color(type='text', name='cat_color') 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['catForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'POST', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Save succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Save failed " + error ) 
+      }); 
+    }); 
