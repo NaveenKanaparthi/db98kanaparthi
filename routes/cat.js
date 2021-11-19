@@ -11,18 +11,19 @@ class cat {
   }
 }
 
-/* GET cat page. */
-router.get('/', function(req, res, next) {
-  const cat1 = new cat('rangolian', 40, 'black');
-  const cat2 = new cat('white cat', 15, 'brown');
-  const cat3 = new cat('black cat', 12, 'light black');
-  res.render('cat', {cat : [cat1, cat2, cat3]});
-});
+// /* GET cat page. */
+// router.get('/', function(req, res, next) {
+//   const cat1 = new cat('rangolian', 40, 'black');
+//   const cat2 = new cat('white cat', 15, 'brown');
+//   const cat3 = new cat('black cat', 12, 'light black');
+//   res.render('cat', {cat : [cat1, cat2, cat3]});
+// });
 
 module.exports = router;
 
 /* GET detail cat page */
 router.get('/detail', cat_controller.cat_view_one_Page);
+router.get('/', cat_controller.cat_view_all_Page);
 
 /* GET create cat page */
 router.get('/create', cat_controller.cat_create_Page);
